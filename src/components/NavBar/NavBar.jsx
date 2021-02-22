@@ -1,30 +1,32 @@
 import React from 'react';
-import styles from './navbar.module.scss';
 
-const NavBar = () => (
-  <div className={styles.NavBar}>
-    <a className={styles.link} href="/">
-      Home
-    </a>
-    <a className={styles.link} href="/users-page">
-      Users
-    </a>
-    <a className={styles.link} href="/home-works">
-      Home Works
-    </a>
-    <a className={styles.link} href="/books">
-      Books
-    </a>
-    <a className={styles.link} href="/test">
-      Test
-    </a>
-    <a className={styles.link} href="/about">
-      About
-    </a>
-    <a className={styles.link} href="/form">
-      Form
-    </a>
-  </div>
-);
+import NavLink from './NavLink';
+import { routes } from 'routes';
+
+import { createUseStyles } from 'react-jss';
+
+const useStyles = createUseStyles({
+  NavBar: {
+    display: 'flex',
+    flexDirection: 'column',
+    borderRight: '1px solid #000',
+    listStyle: 'none',
+    margin: 0,
+    padding: 10,
+    width: 200,
+  },
+});
+
+const NavBar = () => {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.NavBar}>
+      {routes.map(({ path, label }) => (
+        <NavLink path={path} label={label} />
+      ))}
+    </div>
+  );
+};
 
 export default NavBar;
