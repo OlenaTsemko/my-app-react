@@ -18,7 +18,8 @@ const Content = () => {
   return (
     <div className={styles.Content}>
       {routes.map(
-        ({ path, component: Component }) => pathname === path && <Component />,
+        ({ path, component: Component }) =>
+          pathname === path && <Component key={path} />,
       )}
 
       {/* {pathname === '/' && <HomePage />}

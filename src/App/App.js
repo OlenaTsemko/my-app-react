@@ -1,4 +1,4 @@
-import NavBar from 'components/NavBar';
+import NavBar from 'components/Navigation/NavBar';
 import Content from 'components/Content';
 import styles from './app.module.scss';
 

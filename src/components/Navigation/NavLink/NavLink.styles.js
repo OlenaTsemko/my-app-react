@@ -21,21 +21,4 @@ const useStyles = createUseStyles({
   },
 });
 
-const NavLink = ({ path, label }) => {
-  const { pathname } = window.location;
-  const classes = useStyles();
-
-  return (
-    <a
-      className={[
-        classes.link,
-        pathname === path ? classes.activeLink : '',
-      ].join(' ')}
-      href={path}
-    >
-      {label}
-    </a>
-  );
-};
-
-export default NavLink;
+export default useStyles;
