@@ -5,6 +5,8 @@ import BooksPage from 'pages/BooksPage';
 import TestPage from 'pages/TestPage';
 import AboutPage from 'pages/AboutPage';
 import FormPage from 'pages/FormPage';
+import CounterPage from 'pages/CounterPage';
+import TodoListPage from 'pages/TodoListPage';
 
 export const routes = [
   {
@@ -33,13 +35,23 @@ export const routes = [
     component: TestPage,
   },
   {
-    path: '/about',
-    label: 'About',
-    component: AboutPage,
+    path: '/todos',
+    label: 'Todos',
+    component: TodoListPage,
   },
   {
     path: '/form',
     label: 'Form',
     component: FormPage,
+  },
+  {
+    path: '/counter',
+    label: 'Counter',
+    component: CounterPage,
+  },
+  {
+    path: '/about',
+    label: 'About',
+    component: AboutPage,
   },
 ];
