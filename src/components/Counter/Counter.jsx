@@ -54,6 +54,7 @@ class Counter extends Component {
 
     return (
       <div className={styles.Counter}>
+        <h2>Counter with Class</h2>
         <Value value={value} />
         <Controls
           onIncrement={this.handleIncrement}

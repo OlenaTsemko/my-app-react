@@ -11,13 +11,17 @@ class ColorPicker extends Component {
   };
 
   makeOptionClassName = index => {
-    const optionClasses = [styles.ColorPicker__option];
+    // const optionClasses = [styles.ColorPicker__option];
 
-    if (index === this.state.activeOptionIdx) {
-      optionClasses.push(styles.active);
-    }
+    // if (index === this.state.activeOptionIdx) {
+    //   optionClasses.push(styles.active);
+    // }
 
-    return optionClasses.join(' ');
+    // return optionClasses.join(' ');
+
+    return index === this.state.activeOptionIdx
+      ? styles.activeOption
+      : styles.option;
   };
 
   render() {

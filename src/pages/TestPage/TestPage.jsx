@@ -1,6 +1,7 @@
 import NewComponent from 'components/NewComponent';
 import Header from 'components/Header';
 import ColorPicker from 'components/ColorPicker';
+import ColorPickerHooks from 'components/ColorPicker/ColorPickerHooks';
 
 import colorPickerOptions from 'data/colorPicker.json';
 
@@ -16,6 +17,8 @@ const TestPage = () => {
       </NewComponent>
 
       <ColorPicker options={colorPickerOptions} />
+
+      <ColorPickerHooks options={colorPickerOptions} />
     </>
   );
 };
