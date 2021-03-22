@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Container from 'components/Container';
 // import HomePage from 'pages/HomePage';
 // import UsersPage from 'pages/UsersPage';
 // import HomeWorksPage from 'pages/HomeWorksPage';
@@ -16,7 +17,7 @@ const Content = () => {
   const { pathname } = window.location;
 
   return (
-    <div className={styles.Content}>
+    <Container className={styles.Content}>
       {routes.map(
         ({ path, component: Component }) =>
           pathname === path && <Component key={path} />,
@@ -29,7 +30,7 @@ const Content = () => {
       {pathname === '/test' && <TestPage />}
       {pathname === '/about' && <AboutPage />}
       {pathname === '/form' && <FormPage />} */}
-    </div>
+    </Container>
   );
 };
 
