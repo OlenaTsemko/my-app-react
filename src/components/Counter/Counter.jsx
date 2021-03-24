@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Controls from './Controls';
 import Value from './Value';
 
-import * as actions from 'redux/actions';
+import * as actions from 'redux/counter/counter-actions';
 
 import styles from './Counter.module.scss';
 
