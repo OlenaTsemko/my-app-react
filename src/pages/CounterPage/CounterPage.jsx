@@ -7,7 +7,7 @@ const CounterPage = () => (
     <h1>Counter</h1>
     <Counter initialValue={0} />
 
-    <CounterHooks />
+    {/* <CounterHooks /> */}
 
     <Dropdown />
   </>

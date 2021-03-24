@@ -1,68 +1,37 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import Controls from './Controls';
 import Value from './Value';
 
+import * as actions from 'redux/actions';
+
 import styles from './Counter.module.scss';
 
-class Counter extends Component {
-  static defaultProps = {
-    step: 1,
-    initialValue: 0,
-  };
+// в пропсы value и step пришли из mapStateToProps, методы onIncrement и onDecrement пришли из mapDispatchToProps
+const Counter = ({ value, step, onIncrement, onDecrement }) => (
+  <div className={styles.Counter}>
+    <h2>Counter with Redux</h2>
 
-  static propTypes = {
-    step: PropTypes.number,
-    initialValue: PropTypes.number,
-  };
+    <Value value={value} />
 
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     value: 0,
-  //   };
-  // }
+    <Controls
+      step={step}
+      onIncrement={() => onIncrement(step)}
+      onDecrement={() => onDecrement(step)}
+    />
+  </div>
+);
 
-  // если мало свойств записываем так:
-  state = {
-    value: this.props.initialValue,
-  };
+// Добавляет со стейта в пропсы
+const mapStateToProps = state => ({
+  value: state.counter.value,
+  step: state.counter.step,
+});
 
-  // чтоб this был привязан без bind, передаем публичное свойство (стрелочную ф-ю)
-  handleIncrement = event => {
-    // console.log('Increment button was clicked!', event); // работает
-    // console.log('this.props: ', this.props); // работает
-    // setTimeout(() => {
-    //   console.log(event.target);
-    // }, 1000); // уже работает, пофиксили
+// передать методы для отправки actions
+const mapDispatchToProps = dispatch => ({
+  onIncrement: value => dispatch(actions.increment(value)),
+  onDecrement: value => dispatch(actions.decrement(value)),
+});
 
-    this.setState(prevState => ({
-      value: prevState.value + 1,
-    }));
-  };
-
-  handleDecrement = event => {
-    this.setState(prevState => ({
-      value: prevState.value - 1,
-    }));
-  };
-
-  // обязательный метод, который возвращает разметку компонента
-  render() {
-    const { value } = this.state;
-
-    return (
-      <div className={styles.Counter}>
-        <h2>Counter with Class</h2>
-        <Value value={value} />
-        <Controls
-          onIncrement={this.handleIncrement}
-          onDecrement={this.handleDecrement}
-        />
-      </div>
-    );
-  }
-}
-
-export default Counter;
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
