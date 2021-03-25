@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Controls from './Controls';
 import Value from './Value';
 
-import * as actions from 'redux/counter/counter-actions';
+import * as counterActions from 'redux/counter/counter-actions';
 
 import styles from './Counter.module.scss';
 
@@ -30,8 +30,8 @@ const mapStateToProps = state => ({
 
 // передать методы для отправки actions
 const mapDispatchToProps = dispatch => ({
-  onIncrement: value => dispatch(actions.increment(value)),
-  onDecrement: value => dispatch(actions.decrement(value)),
+  onIncrement: value => dispatch(counterActions.increment(value)),
+  onDecrement: value => dispatch(counterActions.decrement(value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
