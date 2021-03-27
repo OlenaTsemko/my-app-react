@@ -1,4 +1,5 @@
-const INCREMENT = 'counter/Increment';
-const DECREMENT = 'counter/Decrement';
+// с redux toolkit этот файл уже не нужен ===============
+// const INCREMENT = 'counter/Increment';
+// const DECREMENT = 'counter/Decrement';
 
-export default { INCREMENT, DECREMENT };
+// export default { INCREMENT, DECREMENT };
